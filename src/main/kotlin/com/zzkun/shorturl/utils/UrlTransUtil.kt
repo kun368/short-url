@@ -8,7 +8,7 @@ object UrlTransUtil {
         var res = 0L
         x.forEach {
             when {
-                it.isDigit() -> res = (res * TOTAL_COUNT) + it.toInt()
+                it.isDigit() -> res = (res * TOTAL_COUNT) + (it - '0')
                 it.isLowerCase() -> res = (res * TOTAL_COUNT) + (it - 'a' + 10)
                 it.isUpperCase() -> res = (res * TOTAL_COUNT) + (it - 'A' + 10 + 26)
             }
@@ -40,4 +40,8 @@ fun main(args: Array<String>) {
     for (x in 0L..1200) {
         println("$x -> ${UrlTransUtil.toMixing(x)} -> ${UrlTransUtil.toDecimal(UrlTransUtil.toMixing(x))}")
     }
+    println(UrlTransUtil.toDecimal("2"))
+    println(UrlTransUtil.toDecimal("b"))
+    println(UrlTransUtil.toDecimal("B"))
+    println(UrlTransUtil.toDecimal("b1"))
 }
