@@ -1,7 +1,7 @@
 FROM node:9
 MAINTAINER codekun <www.zzkun.com>
 
-ENV HTML_ROOT=/usr/share/nginx/html
+ENV HTML_ROOT=/var/www/html
 ENV SRC_ROOT=/appsrc
 
 RUN apt-get update && apt-get install -y nginx
