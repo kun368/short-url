@@ -11,6 +11,7 @@ RUN  mkdir -p $SRC_ROOT
 
 WORKDIR $SRC_ROOT
 COPY package.json $SRC_ROOT
+RUN npm config set registry https://registry.npm.taobao.org
 RUN npm install --production
 COPY . $SRC_ROOT
 RUN npm run build
