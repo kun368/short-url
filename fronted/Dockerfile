@@ -11,11 +11,11 @@ RUN  mkdir -p $SRC_ROOT
 
 WORKDIR $SRC_ROOT
 COPY package.json $SRC_ROOT
-RUN npm config set registry https://registry.npm.taobao.org
 RUN npm install --production
 COPY . $SRC_ROOT
 RUN npm run build
 RUN mv $SRC_ROOT/dist/* $HTML_ROOT
+RUN rm -rf $SRC_ROOT
 
 EXPOSE 80
-CMD service nginx start
+CMD nginx -g "daemon off;"
