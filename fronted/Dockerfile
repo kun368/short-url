@@ -18,4 +18,4 @@ RUN npm run build
 RUN mv $SRC_ROOT/dist/* $HTML_ROOT
 
 EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+CMD service nginx start
