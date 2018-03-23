@@ -6,7 +6,7 @@
     <groupId>com.zzkun</groupId>
     <artifactId>short-url</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>pom</packaging>
+    <packaging>jar</packaging>
 
     <name>short-url</name>
     <description>Demo project for Spring Boot</description>
@@ -65,6 +65,7 @@
     </dependencies>
 
     <build>
+        <finalName>app</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

@@ -11,4 +11,4 @@ ENV JAVA_OPTS ""
 ENV SPRING_PROFILES_ACTIVE test
 
 EXPOSE 8080
-CMD ["/bin/sh", "-c", "java $JAVA_OPTS -jar /app/target/*.jar --spring.profiles.active=$SPRING_PROFILES_ACTIVE"]
+CMD ["/bin/sh", "-c", "java $JAVA_OPTS -jar target/app.jar --spring.profiles.active=$SPRING_PROFILES_ACTIVE"]
