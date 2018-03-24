@@ -28,7 +28,7 @@
 
     <repositories>
         <repository>
-            <id>maven-ali</id>
+            <id>central</id>
             <url>http://maven.aliyun.com/nexus/content/groups/public//</url>
             <releases>
                 <enabled>true</enabled>
