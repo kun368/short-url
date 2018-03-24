@@ -145,10 +145,10 @@ under the License.
    |-->
   <mirrors>
       <mirror>
-          <id>alimaven</id>
-          <mirrorOf>central</mirrorOf>
-          <name>aliyun maven</name>
-          <url>http://maven.aliyun.com/nexus/content/repositories/central/</url>
+          <id>nexus-aliyun</id>
+          <mirrorOf>*</mirrorOf>
+          <name>Nexus aliyun</name>
+          <url>http://maven.aliyun.com/nexus/content/groups/public</url>
       </mirror>
   </mirrors>
 
