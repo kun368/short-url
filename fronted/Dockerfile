@@ -16,6 +16,7 @@ RUN npm install --production
 COPY . $SRC_ROOT
 RUN npm run build
 RUN mv $SRC_ROOT/dist/* $HTML_ROOT
+RUN rm -rf $SRC_ROOT
 
 EXPOSE 80
-CMD service nginx start
+CMD nginx -g "daemon off;"
