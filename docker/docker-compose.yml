@@ -8,22 +8,18 @@ services:
       MYSQL_ROOT_PASSWORD: 123456
     volumes:
       - ./db:/docker-entrypoint-initdb.d
-    ports:
-      - '3306:3306'
 
   vue-server:
     image: registry.cn-hangzhou.aliyuncs.com/zzkun/short-url-vue:dev
-    ports:
-      - '8091:8080'
 
   spring-server:
     image: registry.cn-hangzhou.aliyuncs.com/zzkun/short-url-web:dev
+    environment:
+      SPRING_PROFILES_ACTIVE: prod
     depends_on:
       - db
     links:
       - db
-    ports:
-      - '8090:8080'
 
   server:
     image: nginx
