@@ -30,8 +30,7 @@
       onSubmit() {
         this.$http.get('/api/url/longToShort', {params: {url: this.preUrl}})
           .then(ret => {
-            console.log(ret);
-            this.shortUrl = window.location.host + "/" + ret.json().data;
+            this.shortUrl = window.location.host + "/" + ret.body.data;
             this.$message({
               message: '生成短网址成功！',
               type: 'success'
