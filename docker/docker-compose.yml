@@ -1,13 +1,39 @@
-version: '2'
+version: '3'
 
 services:
-
   db:
     image: mysql:5.7
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: 123456
     volumes:
-      - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+      - ./db:/docker-entrypoint-initdb.d
     ports:
       - '3306:3306'
+
+  vue-server:
+    image: registry.cn-hangzhou.aliyuncs.com/zzkun/short-url-vue:dev
+    ports:
+      - '8091:8080'
+
+  spring-server:
+    image: registry.cn-hangzhou.aliyuncs.com/zzkun/short-url-web:dev
+    depends_on:
+      - db
+    links:
+      - db
+    ports:
+      - '8090:8080'
+
+  server:
+    image: nginx
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - "8081:80"
+    depends_on:
+      - vue-server
+      - spring-server
+    links:
+      - vue-server
+      - spring-server
