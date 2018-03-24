@@ -6,7 +6,7 @@ import VueResource from 'vue-resource'
 
 Vue.config.productionTip = false;
 Vue.use(ElementUI);
-Vue.use(VueResource)
+Vue.use(VueResource);
 
 new Vue({
   el: '#app',
