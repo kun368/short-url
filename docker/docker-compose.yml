@@ -10,10 +10,10 @@ services:
       - ./db:/docker-entrypoint-initdb.d
 
   vue-server:
-    image: registry.cn-hangzhou.aliyuncs.com/zzkun/short-url-vue:dev
+    image: registry.cn-hangzhou.aliyuncs.com/zzkun/short-url-vue
 
   spring-server:
-    image: registry.cn-hangzhou.aliyuncs.com/zzkun/short-url-web:dev
+    image: registry.cn-hangzhou.aliyuncs.com/zzkun/short-url-web
     environment:
       SPRING_PROFILES_ACTIVE: prod
     depends_on:
