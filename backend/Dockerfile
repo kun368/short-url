@@ -4,7 +4,7 @@ ENV APP_ROOT=/app
 RUN mkdir -p $APP_ROOT
 WORKDIR $APP_ROOT
 ADD . $APP_ROOT
-VOLUME ["$HOME/.m2", "/root/.m2"]
+COPY docker/settings.xml /usr/share/maven/ref/
 
 RUN mvn clean install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 
