@@ -36,6 +36,7 @@
             type: 'warning'
           });
           this.shortUrl = "";
+          return;
         }
         this.$http.get('/api/url/longToShort', {params: {url: this.preUrl}})
           .then(ret => {
