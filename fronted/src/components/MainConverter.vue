@@ -28,6 +28,14 @@
     },
     methods: {
       onSubmit() {
+        let urlRegex = /(ht|f)tp(s?):\/\/[0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*(:(0-9)*)*(\/?)([a-zA-Z0-9\-.?,'\/\\+&amp;%$#_]*)?/;
+        if (!this.preUrl.match(urlRegex))  {
+          this.$message({
+            message: '暂时不支持此类型URL哦~',
+            type: 'warning'
+          });
+          this.shortUrl = "";
+        }
         this.$http.get('/api/url/longToShort', {params: {url: this.preUrl}})
           .then(ret => {
             this.shortUrl = "http://" + window.location.host + "/" + ret.body.data;
