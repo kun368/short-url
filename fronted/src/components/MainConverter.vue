@@ -28,8 +28,9 @@
     },
     methods: {
       onSubmit() {
-        let urlRegex = /(ht|f)tp(s?):\/\/[0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*(:(0-9)*)*(\/?)([a-zA-Z0-9\-.?,'\/\\+&amp;%$#_]*)?/;
-        if (!this.preUrl.match(urlRegex))  {
+        let urlRegex = /^(ht|f)tp(s?):\/\/[0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*(:(0-9)*)*(\/?)([a-zA-Z0-9\-.?,'\/\\+&amp;%$#_]*)?$/;
+        let regExp = new RegExp(urlRegex);
+        if (!regExp.test(this.preUrl))  {
           this.$message({
             message: '暂时不支持此类型URL哦~',
             type: 'warning'
