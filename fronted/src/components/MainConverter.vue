@@ -28,7 +28,7 @@
     },
     methods: {
       onSubmit() {
-        let urlRegex = /^(ht|f)tp(s?):\/\/[0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*(:(0-9)*)*(\/?)([a-zA-Z0-9\-.?,'\/\\+&amp;%$#_]*)?$/;
+        let urlRegex = /^(https?|ftp|file):\/\/[-A-Za-z0-9+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|]$/;
         let regExp = new RegExp(urlRegex);
         if (!regExp.test(this.preUrl))  {
           this.$message({
