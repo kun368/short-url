@@ -1,6 +1,7 @@
 <template>
   <div>
     <el-form :inline="true">
+      <input id="hiddenText" type="text" style="display:none" />
       <el-form-item>
         <el-input v-model="preUrl" placeholder="输入要缩短的网址"/>
       </el-form-item>
