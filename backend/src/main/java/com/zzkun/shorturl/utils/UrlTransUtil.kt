@@ -2,7 +2,7 @@ package com.zzkun.shorturl.utils
 
 object UrlTransUtil {
 
-    private const val TOTAL_COUNT = 10 + 26 + 26;
+    private const val TOTAL_COUNT = 10 + 26 + 26
 
     fun toDecimal(x: String): Long {
         var res = 0L

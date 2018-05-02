@@ -41,6 +41,11 @@
         }
         this.$http.get('/api/url/longToShort', {params: {url: this.preUrl}})
           .then(ret => {
+            if (!ret.body.success) {
+              this.shortUrl = "";
+              this.$message.error('生成短网址失败：' + ret.body.data);
+              return;
+            }
             this.shortUrl = "http://" + window.location.host + "/" + ret.body.data;
             this.$message({
               message: '生成短网址成功！',
